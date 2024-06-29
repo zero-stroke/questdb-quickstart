@@ -2,10 +2,10 @@
 
 We will use Grafana, a popular open source tool for dashboards, to connect to your QuestDB instance and displaying near real time dashboards. We will use the grafana postgresql connector to connect to QuestDB.
 
-## Starting grafana via docker
+## Starting Grafana via docker
 
 Even if you already have a working grafana installation, it is recommended to start a new one via docker, as the process
-will provisioning sample connections and dashboards. If you prefer to provision a data source and a dashboard by hand,
+will provision sample connections and dashboards. If you prefer to provision a data source and a dashboard by hand,
 skip this section and proceed to "Manual Provisioning"
 
 Make sure you are at the `dashboard/grafana` directory before starting the grafana container. On starting, the contents
@@ -17,6 +17,7 @@ local installation of QuestDB. If you are not running QuestDB on the local host,
 host/port/user/password as needed. For users of QuestDB cloud you need to make sure you change the value of the
 `QDB_SSL_MODE` variable on that file from `disable` to `require`._
 
+Linux:
 ```shell
 docker run -d -p 3000:3000 --name=grafana-quickstart --user "$(id -u)" --volume "$PWD/home_dir/var_lib_grafana:/var/lib/grafana" --volume "$PWD/home_dir/etc_grafana:/etc/grafana/"  --env-file ./env_variables grafana/grafana-oss
 ```
